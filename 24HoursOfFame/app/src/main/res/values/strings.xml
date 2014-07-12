@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">24HoursOfFame</string>
-    <string name="hello_world">Hello world!</string>
     <string name="upload_text">Upload Text</string>
 
 </resources>

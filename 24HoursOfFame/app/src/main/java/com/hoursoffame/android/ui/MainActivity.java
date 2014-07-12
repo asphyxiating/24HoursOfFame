@@ -1,25 +1,33 @@
-package com.hoursoffame.android;
+package com.hoursoffame.android.ui;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
+import com.hoursoffame.android.R;
 import com.hoursoffame.android.data.LocalPersister;
 import com.hoursoffame.android.data.Persister;
 import com.hoursoffame.android.ui.CreateTextitemActivity;
+import com.hoursoffame.android.ui.adapters.ListViewAdapter;
 
 
 public class MainActivity extends Activity {
 
     private Persister persister;
+    private ListView listView;
+    private ListViewAdapter listViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         persister = new LocalPersister(getSharedPreferences("Persister", 0));
+        listView = (ListView) findViewById(R.id.listView);
+        listViewAdapter = new ListViewAdapter(this, persister.retrieveTextItems());
+        listView.setAdapter(listViewAdapter);
     }
 
 
