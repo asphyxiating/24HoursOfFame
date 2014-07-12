@@ -1,6 +1,7 @@
 package com.hoursoffame.android;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 import com.hoursoffame.android.data.LocalPersister;
 import com.hoursoffame.android.data.Persister;
 import com.hoursoffame.android.data.TextItem;
+import com.hoursoffame.android.ui.CreateTextitemActivity;
 
 
 public class MainActivity extends Activity {
@@ -20,6 +22,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         persister = new LocalPersister(getSharedPreferences("Persister", 0));
+
         TextItem textItem1 = new TextItem();
         textItem1.setTitle("steffi");
         textItem1.setText("likes Alice in Wonderland");
@@ -48,7 +51,9 @@ public class MainActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.uploadText) {
+            Intent intent = new Intent(this, CreateTextitemActivity.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);
