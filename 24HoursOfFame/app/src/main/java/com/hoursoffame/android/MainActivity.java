@@ -3,13 +3,11 @@ package com.hoursoffame.android;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.hoursoffame.android.data.LocalPersister;
 import com.hoursoffame.android.data.Persister;
-import com.hoursoffame.android.data.TextItem;
 import com.hoursoffame.android.ui.CreateTextitemActivity;
 
 
@@ -22,19 +20,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         persister = new LocalPersister(getSharedPreferences("Persister", 0));
-
-        TextItem textItem1 = new TextItem();
-        textItem1.setTitle("steffi");
-        textItem1.setText("likes Alice in Wonderland");
-        TextItem textItem2 = new TextItem();
-        textItem2.setTitle("sam");
-        textItem2.setText("likes crack");
-        persister.saveTextItem(textItem1);
-        persister.saveTextItem(textItem2);
-        TextItem[] textItems = persister.retrieveTextItems();
-        for (TextItem textItem : textItems) {
-            Log.d(MainActivity.class.getCanonicalName(), "Title: " + textItem.getTitle() + " text: " + textItem.getTitle());
-        }
     }
 
 
