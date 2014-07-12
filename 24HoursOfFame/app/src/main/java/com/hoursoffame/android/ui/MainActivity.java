@@ -12,6 +12,7 @@ import com.hoursoffame.android.data.LocalPersister;
 import com.hoursoffame.android.data.Persister;
 import com.hoursoffame.android.ui.CreateTextitemActivity;
 import com.hoursoffame.android.ui.adapters.ListViewAdapter;
+import com.parse.Parse;
 
 
 public class MainActivity extends Activity {
@@ -23,6 +24,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Parse.initialize(this, "43P0a4QuZcCnmepEPYAnmSBXtWo7Gt01oLfSOSmw", "K4CBhkRPuBqXUsjaZMHP5HyEP67QSj45WGZduOPY");
         setContentView(R.layout.activity_main);
         persister = new LocalPersister(getSharedPreferences("Persister", 0));
         listView = (ListView) findViewById(R.id.listView);

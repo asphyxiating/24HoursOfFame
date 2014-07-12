@@ -8,6 +8,7 @@ import android.widget.EditText;
 
 import com.hoursoffame.android.R;
 import com.hoursoffame.android.data.LocalPersister;
+import com.hoursoffame.android.data.ParsePersister;
 import com.hoursoffame.android.data.Persister;
 import com.hoursoffame.android.data.TextItem;
 
@@ -24,7 +25,7 @@ public class CreateTextitemActivity extends Activity {
         setContentView(R.layout.create_textitem_activity);
         titleEditText = (EditText) findViewById(R.id.titleEditText);
         textEditText = (EditText) findViewById(R.id.textEditText);
-        persister = new LocalPersister(getSharedPreferences("Persister", 0));
+        persister = new ParsePersister();
 
     }
 
