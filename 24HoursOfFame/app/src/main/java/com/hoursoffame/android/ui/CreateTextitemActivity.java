@@ -26,7 +26,7 @@ public class CreateTextitemActivity extends Activity {
         titleEditText = (EditText) findViewById(R.id.titleEditText);
         textEditText = (EditText) findViewById(R.id.textEditText);
         persister = new ParsePersister();
-
+        persister.retrieveTextItems();
     }
 
     public void saveOnClick(View view) {

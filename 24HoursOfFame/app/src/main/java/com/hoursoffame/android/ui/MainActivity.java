@@ -9,7 +9,9 @@ import android.widget.ListView;
 
 import com.hoursoffame.android.R;
 import com.hoursoffame.android.data.LocalPersister;
+import com.hoursoffame.android.data.ParsePersister;
 import com.hoursoffame.android.data.Persister;
+import com.hoursoffame.android.data.TextItem;
 import com.hoursoffame.android.ui.CreateTextitemActivity;
 import com.hoursoffame.android.ui.adapters.ListViewAdapter;
 import com.parse.Parse;
@@ -26,9 +28,13 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         Parse.initialize(this, "43P0a4QuZcCnmepEPYAnmSBXtWo7Gt01oLfSOSmw", "K4CBhkRPuBqXUsjaZMHP5HyEP67QSj45WGZduOPY");
         setContentView(R.layout.activity_main);
-        persister = new LocalPersister(getSharedPreferences("Persister", 0));
         listView = (ListView) findViewById(R.id.listView);
-        listViewAdapter = new ListViewAdapter(this, persister.retrieveTextItems());
+        persister = new ParsePersister(this);
+        persister.retrieveTextItems();
+    }
+
+    public void setTextItems(TextItem[] textItems) {
+        listViewAdapter = new ListViewAdapter(this, textItems);
         listView.setAdapter(listViewAdapter);
     }
 
