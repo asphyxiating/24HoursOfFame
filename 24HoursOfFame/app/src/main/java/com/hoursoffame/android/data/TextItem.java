@@ -4,6 +4,7 @@ public class TextItem {
 
     private String text = "";
     private String title = "";
+    private long timeCreate;
 
     public String getText() {
         return text;
