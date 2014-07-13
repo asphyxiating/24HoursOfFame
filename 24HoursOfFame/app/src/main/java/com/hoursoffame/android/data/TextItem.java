@@ -21,4 +21,12 @@ public class TextItem {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public long getTimeCreate() {
+        return timeCreate;
+    }
+
+    public void setTimeCreate(long timeCreate) {
+        this.timeCreate = timeCreate;
+    }
 }
