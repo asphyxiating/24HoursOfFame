@@ -10,7 +10,6 @@ import com.hoursoffame.android.data.TextItem;
 
 public class ListViewAdapter extends ArrayAdapter<TextItem> {
 
-
     public ListViewAdapter(Context context, TextItem[] textItems) {
         super(context, 0, textItems);
     }

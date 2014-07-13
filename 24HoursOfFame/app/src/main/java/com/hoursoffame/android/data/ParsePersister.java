@@ -1,16 +1,11 @@
 package com.hoursoffame.android.data;
 
-import android.content.Context;
-import android.util.Log;
-
 import com.hoursoffame.android.ui.MainActivity;
-import com.hoursoffame.android.ui.adapters.ListViewAdapter;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class ParsePersister implements Persister {

@@ -2,12 +2,10 @@ package com.hoursoffame.android.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
 import com.hoursoffame.android.R;
-import com.hoursoffame.android.data.LocalPersister;
 import com.hoursoffame.android.data.ParsePersister;
 import com.hoursoffame.android.data.Persister;
 import com.hoursoffame.android.data.TextItem;
