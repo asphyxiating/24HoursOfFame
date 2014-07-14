@@ -18,7 +18,8 @@ public class ListViewAdapter extends ArrayAdapter<TextItem> {
     public View getView(int position, View convertView, ViewGroup parent) {
         TextView textView = new TextView(getContext());
         TextItem textItem = getItem(position);
-        textView.setText(textItem.getText() + textItem.getTitle());
+
+        textView.setText(textItem.getTitle() + " / " + textItem.getText() + " / " + textItem.getCreationTime());
         textView.setPadding(10, 10, 10, 10);
         return textView;
     }

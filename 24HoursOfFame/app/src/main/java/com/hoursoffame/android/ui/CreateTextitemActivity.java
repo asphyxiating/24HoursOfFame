@@ -10,6 +10,9 @@ import com.hoursoffame.android.data.ParsePersister;
 import com.hoursoffame.android.data.Persister;
 import com.hoursoffame.android.data.TextItem;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 
 public class CreateTextitemActivity extends Activity {
 
@@ -29,9 +32,16 @@ public class CreateTextitemActivity extends Activity {
 
     public void saveOnClick(View view) {
         TextItem textItem = new TextItem();
+
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String formattedDate = df.format(calendar.getTime());
+
         textItem.setTitle(titleEditText.getText().toString());
         textItem.setText(textEditText.getText().toString());
+        textItem.setCreationTime(formattedDate);
         persister.saveTextItem(textItem);
         finish();
+
     }
 }

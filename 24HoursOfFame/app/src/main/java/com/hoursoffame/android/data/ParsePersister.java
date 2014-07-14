@@ -13,6 +13,7 @@ public class ParsePersister implements Persister {
     public static final String PARSE_TEXTITEM_CLASS = "text_item";
     public static final String PARSE_TITLE = "title";
     public static final String PARSE_TEXT = "text";
+    public static final String PARSE_CREATION_TIME = "creation_time";
 
     private MainActivity mainActivity;
 
@@ -32,9 +33,12 @@ public class ParsePersister implements Persister {
                 ParseObject parseObject = parseObjects.get(i);
                 textItem.setTitle(parseObject.getString(PARSE_TITLE));
                 textItem.setText(parseObject.getString(PARSE_TEXT));
+                textItem.setCreationTime(parseObject.getString(PARSE_CREATION_TIME));
                 textItems[i] = textItem;
             }
-            mainActivity.setTextItems(textItems);
+            if (mainActivity != null) {
+                mainActivity.setTextItems(textItems);
+            }
         }
     };
 
@@ -44,6 +48,7 @@ public class ParsePersister implements Persister {
         ParseObject parseObject = new ParseObject(PARSE_TEXTITEM_CLASS);
         parseObject.put(PARSE_TITLE, textItem.getTitle());
         parseObject.put(PARSE_TEXT, textItem.getText());
+        parseObject.put(PARSE_CREATION_TIME, textItem.getCreationTime());
         parseObject.saveInBackground();
     }
 
